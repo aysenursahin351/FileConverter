@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="records">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="row" maxOccurs="unbounded">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="name">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value = "64"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                </xs:element>
+                            <xs:element name="surname">
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <xs:maxLength value = "32"/>
+                                    </xs:restriction>
+                                </xs:simpleType>
+                                </xs:element>
+                            <xs:element name="gender"><xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="F"/>
+                                <xs:enumeration value="M"/>
+                              </xs:restriction>
+                             </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="email" type="xs:string"/>
+                            <xs:element name="phone_number">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                 <xs:pattern value="[0-9]{3}-[0-9]{3}-[0-9]{4}"></xs:pattern>
+                                  </xs:restriction>
+                            </xs:simpleType></xs:element>
+                            <xs:element name="address" type="xs:string" />
+                            <xs:element name="level_of_education">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="HS"/>
+                                <xs:enumeration value="BSc"/>
+                                <xs:enumeration value="PhD"/>
+                                <xs:enumeration value="MSc"/>
+                                <xs:enumeration value="PS"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="income_level">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:unsignedInt">
+                                            <xs:attribute name="bigEnd" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="expenditure">
+                                <xs:complexType>
+                                    <xs:simpleContent>
+                                        <xs:extension base="xs:unsignedInt">
+                                            <xs:attribute name="bigEnd" use="required" />
+                                        </xs:extension>
+                                    </xs:simpleContent>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="currency_unit">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="₺"/>
+                                <xs:enumeration value="€"/>
+                                <xs:enumeration value="$"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="currentMood"><xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="😊"/>
+                                <xs:enumeration value="😭"/>
+                                <xs:enumeration value="☹"/>
+                                <xs:enumeration value="😄"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="height">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:float">
+                                 <xs:minInclusive value="0.0"/>
+                                 <xs:maxInclusive value="3.5"/>
+                                  </xs:restriction>
+                            </xs:simpleType></xs:element>
+                            <xs:element name="weight">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:unsignedInt">
+                                 <xs:minInclusive value="0"/>
+                                 <xs:maxInclusive value="100"/>
+                                  </xs:restriction>
+                            </xs:simpleType></xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:integer" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
