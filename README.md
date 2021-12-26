@@ -4,9 +4,11 @@ It converts the records.dat file, that is, a binary file into an xml file. The f
 Also, the characters that can make a difference in the linux and windows operating systems are checked with the file with the .csv extension.
 This code is coded for the linux system.
 
-This is a sample binary file (“records.dat”) to test your program. This file consists of
-some information about the employees of a company. Each record has the following
+This is a sample binary file (“records.dat”) to test your program.
+This file consists of some information about the employees of a company. 
+Each record has the following
 attributes and their sizes are given below:
+
 struct record {
  char name[64]; //utf16
  char surname[32]; //utf8
